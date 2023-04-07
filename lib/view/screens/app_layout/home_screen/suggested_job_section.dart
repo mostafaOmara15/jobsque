@@ -16,45 +16,28 @@ class SuggestedJobsSection extends StatefulWidget {
 class _SuggestedJobsSectionState extends State<SuggestedJobsSection> {
 
   @override
-  // void initState() {
-  //   print("${CacheHelper.getInt("userId")} ${CacheHelper.getString(
-  //       "userToken")}");
-  //   print("${EndPoint.userToken} ${EndPoint.userId}");
-  //   SuggestedJobCubit().getSuggestedJobs(
-  //       id: EndPoint.userId, token: EndPoint.userToken);
-  //   super.initState();
-  // }
-
-  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => SuggestedJobCubit()..getSuggestedJobs(
-            id: EndPoint.userId, token: EndPoint.userToken),
+        create: (context) => SuggestedJobCubit()..getSuggestedJobs(id: EndPoint.userId, token: EndPoint.userToken),
         child: BlocConsumer<SuggestedJobCubit, SuggestedJobStates>(
-            listener: (BuildContext context, SuggestedJobStates state) {
-              // if(state is SuggestedJobInitialState){
-              //   SuggestedJobCubit().getSuggestedJobs();
-              // }
-            },
+            listener: (BuildContext context, SuggestedJobStates state) {},
             builder: (BuildContext context, SuggestedJobStates state) {
               SuggestedJobCubit suggestedJobCubit = SuggestedJobCubit.get(context);
-              return SizedBox(
-                  height: 22.h,
-                  child: state is SuggestedJobLoadingState
-                      ? CircularProgressIndicator()
-                      : state is SuggestedJobSuccessState
-                        ? ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: suggestedJobCubit.suggestedJobsList!.length,
-                    itemBuilder: (context, index) {
-                      print(index);
-                      return SuggestedJobCard(
-                          job: suggestedJobCubit.suggestedJobsList![index]);
-                    },
-                  )
-              : Text("fesfsfs")
-
+              return Container(
+                height: 22.h,
+                child:  state is SuggestedJobLoadingState
+                  ? const Center(child: CircularProgressIndicator())
+                  : state is SuggestedJobSuccessState
+                    ? ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                              itemCount: suggestedJobCubit.suggestedJobsList!.length,
+                              itemBuilder: (context, index) {
+                                print(index);
+                                return SuggestedJobCard(job: suggestedJobCubit.suggestedJobsList![index]);
+                              },
+                            )
+                    : const Center(child: Text("Error")),
               );
             }
         )

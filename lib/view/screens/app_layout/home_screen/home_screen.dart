@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobsque/resources/color_manager.dart';
 import 'package:jobsque/resources/padding_manager.dart';
+import 'package:jobsque/view/screens/app_layout/home_screen/recent_job_section.dart';
 import 'package:jobsque/view/screens/app_layout/home_screen/suggested_job_section.dart';
 import 'package:jobsque/view/widgets/home_widgets/section_header.dart';
 import 'package:jobsque/view_model/data/local/cache_helper.dart';
@@ -53,11 +54,11 @@ class HomeScreen extends StatelessWidget {
 
             SectionsHeader(title: "Suggested Jobs", viewAll: true),
             SizedBox(height: 2.h,),
-            SuggestedJobsSection(),
+            const SuggestedJobsSection(),
             SizedBox(height: 2.h,),
 
             SectionsHeader(title: "Recent Jobs", viewAll: true),
-            RecentJobCard(),
+            const RecentJobsSection(),
           ],
         ),
       ),

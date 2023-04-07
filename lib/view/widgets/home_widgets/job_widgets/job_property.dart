@@ -13,33 +13,29 @@ class JobProperty  extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 2.w),
-      child: Container(
-
-        decoration: BoxDecoration(
-          color: isSuggested
-              ? ColorManager.blue
-              : ColorManager.lightBlue,
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: Center(
-            child: Padding(
-              padding: EdgeInsets.all(1.h),
-              child: Expanded(
-                child: Flexible(
-                  child: Text(
-                      property,
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: isSuggested
-                              ? Colors.white
-                              : ColorManager.primaryColor
-                      )
-                  ),
-                ),
-              ),
-            )
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 17.w,
+          height: 7.w,
+          decoration: BoxDecoration(
+            color: isSuggested
+                ? ColorManager.blue
+                : ColorManager.lightBlue,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Center(
+            child: Text(
+                property,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: isSuggested
+                        ? Colors.white
+                        : ColorManager.primaryColor
+                )
+            ),
+          ),
         ),
       ),
     );

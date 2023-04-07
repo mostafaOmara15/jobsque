@@ -32,15 +32,11 @@ class SuggestedJobCubit extends Cubit <SuggestedJobStates> {
       token: token
     ).then((value) {
         suggestedJobs = SuggestedJobModel.fromJson(value.data);
-        // print("000000000000000000000000000000000000000");
-        // print(value.data);
-        // // print(suggestedJobs!.status);
          suggestedJobsList = suggestedJobs?.data;
          print(suggestedJobsList);
          emit(SuggestedJobSuccessState());
     }
     ).catchError((error){
-      print("A7a");
       print(error.toString());
       emit(SuggestedJobErrorState());
     });

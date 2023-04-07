@@ -6,6 +6,7 @@ class EndPoint {
   static String login = 'auth/login';
   static String updateProfile = 'user/profile';
   static String suggestedJob = 'jobs/sugest';
+  static String recentJob = 'jobs';
   static String userToken = '';
   static int userId = 0;
 }

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import '../../../../model/jobs/recent_jobs_model.dart';
 import '../../../../resources/color_manager.dart';
 import 'job_property.dart';
 
 
 class RecentJobCard extends StatefulWidget {
+
+  RecentJobData job;
+  RecentJobCard({required this.job});
 
   @override
   State<RecentJobCard> createState() => _RecentJobCardState();
@@ -28,9 +32,9 @@ class _RecentJobCardState extends State<RecentJobCard> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      Text("Senior UI Designer", style: TextStyle(color: ColorManager.darkBlue, fontSize: 23.5),),
-                      Text("Twitter • Jakarta, Indonesia", style: TextStyle(color: ColorManager.darkBlue, fontSize: 18))
+                    children: [
+                      Text(widget.job.name!, style: TextStyle(color: ColorManager.darkBlue, fontSize: 23.5),),
+                      Text(widget.job.compEmail!, style: TextStyle(color: ColorManager.darkBlue, fontSize: 18))
                     ],
                   ),
                   IconButton(
@@ -49,14 +53,14 @@ class _RecentJobCardState extends State<RecentJobCard> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  JobProperty(property: "Fulltime", isSuggested: false,),
-                  JobProperty(property: "Remote", isSuggested: false,),
-                  JobProperty(property: "Design", isSuggested: false,),
+                  JobProperty(property: widget.job.jobTimeType!, isSuggested: false,),
+                  JobProperty(property: widget.job.jobType!, isSuggested: false,),
+
                   RichText(
                     text: TextSpan(
                       children: <TextSpan>[
                         const TextSpan(text: "\$",style: TextStyle(fontSize: 20, color: Colors.green, fontWeight: FontWeight.bold)),
-                        TextSpan(text: "15K",style: const TextStyle(fontSize: 20, color: Colors.green, fontWeight: FontWeight.bold)),
+                        TextSpan(text: widget.job.salary!,style: const TextStyle(fontSize: 20, color: Colors.green, fontWeight: FontWeight.bold)),
                         const TextSpan(text: '/Month', style: TextStyle(fontSize: 14, color: ColorManager.darkGrey)),
                       ],
                     ),
