@@ -32,9 +32,13 @@ class RegisterCubit extends Cubit<RegisterState> {
       },
     ).then((value) {
       registerModel = RegisterModel.fromJson(value.data);
+
       CacheHelper.setString("userToken", registerModel!.token!);
       CacheHelper.setString("userName", registerModel!.data!.name!);
       CacheHelper.setInt("userId", registerModel!.profile!.userId!);
+      EndPoint.userId = registerModel!.profile!.userId!;
+      EndPoint.userToken = registerModel!.token!;
+
       emit(RegisterSuccessState());
     }).catchError((error) {
       print(error.toString());

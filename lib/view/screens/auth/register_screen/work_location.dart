@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobsque/resources/padding_manager.dart';
+import 'package:jobsque/view_model/constants/end_points.dart';
 import 'package:jobsque/view_model/cubit/auth_cubit/register/work_location/work_lacation_states.dart';
 import 'package:jobsque/view_model/cubit/auth_cubit/register/work_location/work_location_cubit.dart';
 import 'package:sizer/sizer.dart';
@@ -23,14 +24,12 @@ class WorkLocation extends StatelessWidget {
       create: (context) => WorkLocationCubit(),
       child: BlocConsumer <WorkLocationCubit, WorkLocationStates>(
         listener: (BuildContext context, WorkLocationStates states) {
-          // if(states is UpdateProfileSuccessStates){
-          //   Navigator.pushReplacementNamed(context, AppRoutes.announceAccountScreenRoute);
-          // }
+          if(states is UpdateProfileSuccessStates){
+            Navigator.pushReplacementNamed(context, AppRoutes.announceAccountScreenRoute);
+          }
         },
         builder: (BuildContext context, WorkLocationStates states){
-
           WorkLocationCubit workLocationCubit = WorkLocationCubit.get(context);
-          InterestedWorkCubit interestedWorkCubit = InterestedWorkCubit.get(context);
 
           return Scaffold(
             body: Padding(
@@ -253,13 +252,12 @@ class WorkLocation extends StatelessWidget {
                       print(remoteLocations);
 
                       workLocationCubit.updatingProfile(
+                          id: EndPoint.userId,
+                          token: EndPoint.userToken,
                           interestedWork: interWork,
                           offlinePlaces: offlineLocations,
                           remotePlaces: remoteLocations
                       );
-
-                      Navigator.pushReplacementNamed(context, AppRoutes.announceAccountScreenRoute);
-
                     },
                   )
                 ],

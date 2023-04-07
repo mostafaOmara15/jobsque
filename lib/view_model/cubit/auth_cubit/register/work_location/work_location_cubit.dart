@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jobsque/model/auth/update_profile.dart';
+import 'package:jobsque/model/auth/update_profile_model.dart';
 import 'package:jobsque/view_model/cubit/auth_cubit/register/work_location/work_lacation_states.dart';
 import '../../../../constants/end_points.dart';
 import '../../../../data/local/cache_helper.dart';
@@ -31,23 +31,19 @@ class WorkLocationCubit extends Cubit<WorkLocationStates> {
   bool argentina = false;
   bool brazil = false;
 
-  void updatingProfile({required String interestedWork, required String offlinePlaces, required String remotePlaces}){
+  void updatingProfile({required String interestedWork, required String offlinePlaces, required String remotePlaces, required int id, required String token}){
     emit(UpdateProfileLoadingStates());
-    print(CacheHelper.getString("userToken"));
-    print(CacheHelper.getString("userName"));
-    print(CacheHelper.getInt("userId"));
-
     DioHelper.putData(
-      endPoint: '${EndPoint.profile}/${CacheHelper.getInt("userId")}',
+      endPoint: '${EndPoint.updateProfile}/$id',
       data: {
         "intersted_work": interestedWork,
         "offline_place" : offlinePlaces,
         "remote_place" : remotePlaces
       },
-       token: CacheHelper.getString("userToken"),
+       token: token,
     ).then((value) {
       updateProfileModel = UpdateProfileModel.fromJson(value.data);
-      // print(value.data);
+      print(value.data);
       emit(UpdateProfileSuccessStates());
     }).catchError((error) {
       print(error.toString());
