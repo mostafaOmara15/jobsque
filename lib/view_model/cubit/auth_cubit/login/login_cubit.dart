@@ -38,6 +38,8 @@ class LoginCubit extends Cubit<LoginStates> {
       // token: EndPoint.userToken
     ).then((value) {
       loginModel = LoginModel.fromJson(value.data);
+      EndPoint.userId = loginModel!.user!.id!;
+      EndPoint.userToken = loginModel!.token!;
       CacheHelper.setString("userToken", loginModel!.token!);
       CacheHelper.setString("userName", loginModel!.user!.name!);
       CacheHelper.setInt("userId", loginModel!.user!.id!);

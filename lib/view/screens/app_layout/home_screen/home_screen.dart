@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Hi, ${CacheHelper.getString("userName")}👋", style: TextStyle(color: ColorManager.darkBlue, fontSize: 33, fontWeight: FontWeight.w500)),
-                    SizedBox(height: 1.h,),
+                    // SizedBox(height: 1.h,),
                     const Text("Create a better future for yourself here", style: TextStyle(color: ColorManager.darkGrey, fontSize: 19, fontWeight: FontWeight.w400)),
                   ],
                 ),
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 2.h,),
 
             SectionsHeader(title: "Recent Jobs", viewAll: true),
-            Expanded(child: RecentJobCard()),
+            RecentJobCard(),
           ],
         ),
       ),

@@ -8,9 +8,10 @@ import '../../../data/local/cache_helper.dart';
 class SuggestedJobCubit extends Cubit <SuggestedJobStates> {
   SuggestedJobCubit(): super(SuggestedJobInitialState());
 
-  // static SuggestedJobCubit get(context) => BlocProvider.of(context);
+  static SuggestedJobCubit get(context) => BlocProvider.of(context);
 
   bool saved = false;
+  List<JobData>? suggestedJobsList;
   SuggestedJobModel? suggestedJobs;
 
   void onSaveTapped() {
@@ -32,15 +33,11 @@ class SuggestedJobCubit extends Cubit <SuggestedJobStates> {
     ).then((value) {
         suggestedJobs = SuggestedJobModel.fromJson(value.data);
         // print("000000000000000000000000000000000000000");
-        print(value.data);
-        // print(suggestedJobs!.status);
-        // suggestedJobsList = suggestedJobs?.data;
-        // if(suggestedJobs != Null || suggestedJobs!.data != null){
-          emit(SuggestedJobSuccessState());
-        // }else{
-        //   print("A7a neeeek");
-        //   emit(SuggestedJobErrorState());
-        // }
+        // print(value.data);
+        // // print(suggestedJobs!.status);
+         suggestedJobsList = suggestedJobs?.data;
+         print(suggestedJobsList);
+         emit(SuggestedJobSuccessState());
     }
     ).catchError((error){
       print("A7a");

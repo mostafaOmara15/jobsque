@@ -16,6 +16,7 @@ class JobProperty  extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 2.w),
       child: Container(
+
         decoration: BoxDecoration(
           color: isSuggested
               ? ColorManager.blue
@@ -26,14 +27,16 @@ class JobProperty  extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(1.h),
               child: Expanded(
-                child: Text(
-                    property,
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: isSuggested
-                            ? Colors.white
-                            : ColorManager.primaryColor
-                    )
+                child: Flexible(
+                  child: Text(
+                      property,
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: isSuggested
+                              ? Colors.white
+                              : ColorManager.primaryColor
+                      )
+                  ),
                 ),
               ),
             )

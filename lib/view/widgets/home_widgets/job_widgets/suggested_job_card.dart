@@ -18,7 +18,7 @@ class SuggestedJobCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 25,
+      width: 78.w,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 2.w),
         child: InkWell(
@@ -61,7 +61,7 @@ class SuggestedJobCard extends StatelessWidget {
                 ),
 
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     JobProperty(property: job.jobTimeType!, isSuggested: true),
                     JobProperty(property: job.jobType!, isSuggested: true),
