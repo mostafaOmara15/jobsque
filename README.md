@@ -1,16 +1,16 @@
-# jobsque
+# 💼 Jobsque
 
-A new Flutter project.
+**Jobsque** is a mobile application built with **Flutter** that helps job seekers explore opportunities, apply for positions, and manage their career journey all in one place.  
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📖 About the Project
+Jobsque provides a simple and intuitive way for job seekers to:
+- 🔎 Search and filter job listings by title, category, or location  
+- 📄 View detailed job descriptions and requirements  
+- 📑 Create and manage user profiles with CV/resume uploads  
+- 📨 Apply directly to jobs through the app  
+- ❤️ Save favorite jobs for later review  
+- 🔔 Get notifications for new job postings  
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
