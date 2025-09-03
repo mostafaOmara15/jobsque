@@ -16,5 +16,5 @@ Jobsque provides a simple and intuitive way for job seekers to:
 ---
 
 ## 📱 Screenshots
+<img width="4800" height="3600" alt="Shot-2" src="https://github.com/user-attachments/assets/96668080-6c27-465c-bc6a-a90e08ae53ba" />
 
-![App Mockup]([https://link-to-your-image.png](https://drive.google.com/file/d/1LrI3ySGGLh3L64hIj7SKk-zi7zGSqZRb/view?usp=drive_link))
