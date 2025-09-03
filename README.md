@@ -14,3 +14,7 @@ Jobsque provides a simple and intuitive way for job seekers to:
 - 🔔 Get notifications for new job postings  
 
 ---
+
+## 📱 Screenshots
+
+![App Mockup]([https://link-to-your-image.png](https://drive.google.com/file/d/1LrI3ySGGLh3L64hIj7SKk-zi7zGSqZRb/view?usp=drive_link))
